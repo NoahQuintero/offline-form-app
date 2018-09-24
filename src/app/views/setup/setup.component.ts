@@ -45,6 +45,10 @@ export class SetupComponent implements OnInit {
   ngOnInit() {
     this.events = this.fireDB.getEvents();
 
+    this.tryOpenDialog();
+  }
+
+  tryOpenDialog() {
     this.db.getUserForms().toArray(forms => {
       if (forms.length) {
         const dialog = this.dialog.open(DialogComponent, {width: '350px'});
