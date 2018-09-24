@@ -22,6 +22,6 @@ import { DialogComponent } from '../components/dialog/dialog.component';
   ],
   declarations: [LoginComponent, SetupComponent, VerifyUserComponent, TaskSummaryComponent, FormViewComponent],
   providers: [MatSnackBar, MatDialog],
-  entryComponents:[DialogComponent]
+  entryComponents: [DialogComponent]
 })
 export class ViewsModule { }

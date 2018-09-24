@@ -31,7 +31,7 @@ export class VerifyUserComponent implements OnInit {
         this.router.navigate(['task-summary', this.foundUser.userId]);
       });
 
-      
+
     }
   }
 

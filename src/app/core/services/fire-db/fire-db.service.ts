@@ -39,10 +39,9 @@ export class FireDBService {
 
       forms.forEach(f => {
         this.fireDB.collection('completedForms').add(f).then(x => {
-          observer.next(x)
+          observer.next(x);
           count++;
           formsToDelete.push((f as any).id);
-
 
           if (count >= forms.length) {
             this.db.deleteUserForms(formsToDelete).then(() => {
