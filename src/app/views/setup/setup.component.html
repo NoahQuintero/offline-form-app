@@ -1,0 +1,14 @@
+<div *ngIf="formsPendingUpload" class="text-center pending-forms-well p-20 mt-20">
+  You cannot setup for another event while there are still forms to upload.
+</div>
+
+<h1>Upcoming events</h1>
+
+<mat-card *ngFor="let event of events | async; index as i" class = "align-center m-20">
+
+  <p>Location: {{event.location}}</p>
+  <p>Date: {{event.date}}</p>
+  <p>Number of attendees: {{event.attendees.length}}</p>
+
+  <button mat-raised-button (click)="setupForEvent($event, event)" [disabled]="formsPendingUpload">Setup for this event</button>
+</mat-card>

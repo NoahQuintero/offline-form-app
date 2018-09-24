@@ -1,0 +1,7 @@
+$error-red: transparentize($color: red, $amount: .6);
+
+.pending-forms-well {
+    border: 1px solid $error-red;
+    box-shadow: 1px 1px 1px  $error-red;
+    background-color: $error-red;
+}

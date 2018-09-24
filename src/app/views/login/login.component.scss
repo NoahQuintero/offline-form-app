@@ -1,0 +1,16 @@
+.login-form {
+    margin-left: auto;
+    margin-right: auto;
+
+    > .mat-form-field {
+        display: block;
+        width: 75%;
+        @media screen and (max-width: 480px) {
+            width: 100%
+        }
+    }
+}
+
+.login-btn-group {
+    text-align: center;
+}

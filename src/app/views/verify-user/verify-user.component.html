@@ -1,0 +1,24 @@
+<mat-card class="mt-20 align-center">
+    <mat-card-title>Is this you?</mat-card-title>
+  
+    <mat-card-content>
+
+        <div class="align-center">
+            <p>Name: {{foundUser.firstName}} {{foundUser.lastName}}</p>
+            <p>Date of Birth: {{foundUser.dob}}</p>
+            <!-- MAKE THIS UNBLUR ON HOVER -->
+            <p>Last 4 SSN: {{foundUser.last4SSN}}</p>
+        </div>
+
+    </mat-card-content>
+  
+    <mat-card-actions>
+  
+      <div class="align-center">
+        <button mat-raised-button class=" m-10" (click) = "isCorrect(true)">Yes</button>
+        <button mat-raised-button class=" m-10" (click) = "isCorrect(false)">No</button>
+      </div>
+  
+    </mat-card-actions>
+  
+  </mat-card>

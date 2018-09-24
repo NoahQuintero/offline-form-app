@@ -1,0 +1,7 @@
+.router-container {
+    margin: 0 25%;
+
+    @media screen and (max-width: 768px){
+        margin: 0 5%;
+    }
+}

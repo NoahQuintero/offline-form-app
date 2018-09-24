@@ -1,0 +1,40 @@
+<ng-container *ngIf="form">
+  <form name="form" #myForm="ngForm" (ngOnSubmit)="submitForm()">
+    <div *ngFor="let q of form.questions; index as i">
+
+      <mat-form-field>
+        <mat-label>
+          <span>{{q.question}}</span>
+        </mat-label>
+        <ng-container [ngSwitch]="q.ctrlType">
+          <ng-container *ngSwitchDefault>
+            <input type="text" matInput [(ngModel)]="q.answer" name="question-{{i}}">
+          </ng-container>
+
+          <ng-container *ngSwitchCase="types.Text">
+            <input type="text" matInput [(ngModel)]="q.answer" name="question-{{i}}">
+          </ng-container>
+
+          <ng-container *ngSwitchCase="types.Number">
+            <input type="number" matInput [(ngModel)]="q.answer" name="question-{{i}}">
+          </ng-container>
+
+          <ng-container *ngSwitchCase="types.Checkbox">
+            <input type="checkbox" matInput [(ngModel)]="q.answer" name="question-{{i}}">
+          </ng-container>
+
+          <ng-container *ngSwitchCase="types.Select">
+            <mat-select [(ngModel)]="q.answer" name="question-{{i}}">
+              <mat-option *ngFor="let o of q.options">
+                {{o}}
+              </mat-option>
+            </mat-select>
+          </ng-container>
+        </ng-container>
+      </mat-form-field>
+
+    </div>
+
+    <button mat-raised-button (click)="submitForm()">Submit</button>
+  </form>
+</ng-container>

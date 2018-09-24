@@ -1,0 +1,40 @@
+<mat-card class="mt-20 align-center">
+  <mat-card-title>Login</mat-card-title>
+
+  <mat-card-content>
+    <form #login="ngForm" class="login-form" (ngOnSubmit)="handleLogin($event)">
+      <mat-form-field class="align-center">
+
+        <input matInput type="text" name="lastname" required placeholder="Last Name" [(ngModel)]="lastName"
+          #userLastName="ngModel">
+        <mat-error *ngIf="userLastName.errors?.required">This field is required</mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field class="align-center">
+
+        <input matInput type="date" name="dob" required placeholder="Date of Birth" [(ngModel)]="dob" #userDob="ngModel">
+        <mat-error *ngIf="userDob.errors?.required">This field is required</mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field class="align-center">
+
+        <input matInput type="password" name="ssn" required placeholder="Last 4 SSN" [(ngModel)]="ssn" #userDob="ngModel">
+        <mat-error *ngIf="userDob.errors?.required">This field is required</mat-error>
+
+      </mat-form-field>
+
+      <div class="login-btn-group align-center m-10">
+        <button mat-raised-button [disabled]="!login.valid" (click)="handleLogin($event)">Search</button>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+
+
+
+  </mat-card-actions>
+
+</mat-card>

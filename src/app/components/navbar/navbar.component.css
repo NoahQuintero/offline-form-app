@@ -1,0 +1,16 @@
+.fill-space {
+    width: 100%;
+}
+
+a {
+    color: white;
+    font-size: 20px;
+}
+
+.navbar-content-container {
+
+    div:first-child {
+        margin-right: 100%;
+    }
+
+}

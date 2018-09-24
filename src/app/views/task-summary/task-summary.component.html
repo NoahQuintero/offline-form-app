@@ -1,0 +1,48 @@
+<mat-card class="mt-20">
+
+    <mat-card-title>
+        <p>Welcome, {{currentUser.firstName}}!</p>
+        <p *ngIf="!complete; else allComplete">These are the forms we need you to do today:</p>
+        <ng-template #allComplete>
+            <p>Great! You've finished all your forms!</p>
+        </ng-template>
+    </mat-card-title>
+
+    <mat-card-content>
+        <div *ngFor="let form of userForms | async">
+
+            <ng-container *ngIf="!form.completed; else formCompleted">
+
+                <div class="flex-box">
+                    <div class="flex-1">
+                        <span class="mr-5"><i class="material-icons">assignment</i></span>
+                        <span>{{form.formName}}</span>
+                    </div>
+                    <div class="flex-1 align-right">
+                        <button mat-raised-button class="m-10" (click)="startForm($event, form)">Start</button>
+                    </div>
+                </div>
+
+            </ng-container>
+
+            <ng-template #formCompleted>
+
+                <div class="flex-box">
+                    <div class="flex-1">
+                        <span class="mr-5"><i class="material-icons">done</i></span>
+                        <span>{{form.formName}}</span>
+                    </div>
+                    <div class="flex-1 align-right">
+                        <button mat-raised-button class="m-10" (click)="startForm($event, form)">Make Changes</button>
+                    </div>
+                </div>
+
+            </ng-template>
+
+            <hr>
+
+        </div>
+
+    </mat-card-content>
+
+</mat-card>
