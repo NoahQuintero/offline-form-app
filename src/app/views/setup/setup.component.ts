@@ -104,11 +104,11 @@ export class SetupComponent implements OnInit {
         u.pipe(catchError(e => throwError(observer.error(e))))
           .pipe(take(1)).pipe(map(users => users as User[])).subscribe(users => {
 
-            // emit and track how many we have so far
+            // emit item and track how many we have so far
             observer.next(users[0]);
             count++;
 
-            // when we have everyone we're suppose to get, complete the observable
+            // when we have everyone we're supposed to get, complete the observable
             if (count >= event.attendees.length) {
               observer.complete();
             }
@@ -126,6 +126,7 @@ export class SetupComponent implements OnInit {
         // and say we successfully got everyone.
         this.usersAdded = true;
       }).catch(err => {
+        // should give error feedback here...
         console.log(err);
       });
     });
